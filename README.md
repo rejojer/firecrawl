@@ -1,645 +1,190 @@
-<h3 align="center">
-  <a name="readme-top"></a>
-  <img
-    src="https://raw.githubusercontent.com/mendableai/firecrawl/main/img/firecrawl_logo.png"
-    height="200"
-  >
-</h3>
-<div align="center">
-    <a href="https://github.com/mendableai/firecrawl/blob/main/LICENSE">
-  <img src="https://img.shields.io/github/license/mendableai/firecrawl" alt="License">
-</a>
-    <a href="https://pepy.tech/project/firecrawl-py">
-  <img src="https://static.pepy.tech/badge/firecrawl-py" alt="Downloads">
-</a>
-<a href="https://GitHub.com/mendableai/firecrawl/graphs/contributors">
-  <img src="https://img.shields.io/github/contributors/mendableai/firecrawl.svg" alt="GitHub Contributors">
-</a>
-<a href="https://firecrawl.dev">
-  <img src="https://img.shields.io/badge/Visit-firecrawl.dev-orange" alt="Visit firecrawl.dev">
-</a>
-</div>
-<div>
-  <p align="center">
-    <a href="https://twitter.com/firecrawl_dev">
-      <img src="https://img.shields.io/badge/Follow%20on%20X-000000?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X" />
-    </a>
-    <a href="https://www.linkedin.com/company/104100957">
-      <img src="https://img.shields.io/badge/Follow%20on%20LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Follow on LinkedIn" />
-    </a>
-    <a href="https://discord.com/invite/gSmWdAkdwd">
-      <img src="https://img.shields.io/badge/Join%20our%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join our Discord" />
-    </a>
-  </p>
-</div>
+# 📄 PageIndex
 
-# 🔥 Firecrawl
+Are you frustrated with vector database retrieval accuracy for long professional documents? Traditional vector-based RAG relies on semantic *similarity* rather than true *relevance*. But what we really need in retrieval is **relevance** — which requires **reasoning**. When working with professional documents that demand domain expertise and multi-step reasoning, similarity search often falls short.
 
-Empower your AI apps with clean data from any website. Featuring advanced scraping, crawling, and data extraction capabilities.
+**Reasoning-based RAG** offers a better alternative: enabling LLMs to *think* and *reason* their way to the most relevant document sections. Inspired by *AlphaGo*, we propose to use  *tree search* to perform structured document retrieval.
 
-_This repository is in development, and we’re still integrating custom modules into the mono repo. It's not fully ready for self-hosted deployment yet, but you can run it locally._
+**[PageIndex](https://vectify.ai/pageindex)** is a *document indexing system* that builds *search tree structures* from long documents, making them ready for reasoning-based RAG. 
 
-## What is Firecrawl?
+Built by [Vectify AI](https://vectify.ai/pageindex).
 
-[Firecrawl](https://firecrawl.dev?ref=github) is an API service that takes a URL, crawls it, and converts it into clean markdown or structured data. We crawl all accessible subpages and give you clean data for each. No sitemap required. Check out our [documentation](https://docs.firecrawl.dev).
+---
 
-_Pst. hey, you, join our stargazers :)_
+# **⭐ What is PageIndex**
 
-<a href="https://github.com/mendableai/firecrawl">
-  <img src="https://img.shields.io/github/stars/mendableai/firecrawl.svg?style=social&label=Star&maxAge=2592000" alt="GitHub stars">
-</a>
+PageIndex can transform lengthy PDF documents into a semantic **tree structure**, similar to a *"table of contents"* but optimized for use with Large Language Models (LLMs).
+It’s ideal for: financial reports, regulatory filings, academic textbooks, legal or technical manuals, and any document that exceeds LLM context limits.
 
-## How to use it?
+### ✅ Key Features
+    
+- **Hierarchical Tree Structure**  
+  Enables LLMs to traverse documents logically — like an intelligent, LLM-optimized table of contents.
 
-We provide an easy to use API with our hosted version. You can find the playground and documentation [here](https://firecrawl.dev/playground). You can also self host the backend if you'd like.
+- **Precise Page Referencing**  
+  Every node contains its summary and start/end page physical index, allowing pinpoint retrieval.
 
-Check out the following resources to get started:
-- [x] **API**: [Documentation](https://docs.firecrawl.dev/api-reference/introduction)
-- [x] **SDKs**: [Python](https://docs.firecrawl.dev/sdks/python), [Node](https://docs.firecrawl.dev/sdks/node), [Go](https://docs.firecrawl.dev/sdks/go), [Rust](https://docs.firecrawl.dev/sdks/rust)
-- [x] **LLM Frameworks**: [Langchain (python)](https://python.langchain.com/docs/integrations/document_loaders/firecrawl/), [Langchain (js)](https://js.langchain.com/docs/integrations/document_loaders/web_loaders/firecrawl), [Llama Index](https://docs.llamaindex.ai/en/latest/examples/data_connectors/WebPageDemo/#using-firecrawl-reader), [Crew.ai](https://docs.crewai.com/), [Composio](https://composio.dev/tools/firecrawl/all), [PraisonAI](https://docs.praison.ai/firecrawl/), [Superinterface](https://superinterface.ai/docs/assistants/functions/firecrawl), [Vectorize](https://docs.vectorize.io/integrations/source-connectors/firecrawl)
-- [x] **Low-code Frameworks**: [Dify](https://dify.ai/blog/dify-ai-blog-integrated-with-firecrawl), [Langflow](https://docs.langflow.org/), [Flowise AI](https://docs.flowiseai.com/integrations/langchain/document-loaders/firecrawl), [Cargo](https://docs.getcargo.io/integration/firecrawl), [Pipedream](https://pipedream.com/apps/firecrawl/)
-- [x] **Others**: [Zapier](https://zapier.com/apps/firecrawl/integrations), [Pabbly Connect](https://www.pabbly.com/connect/integrations/firecrawl/)
-- [ ] Want an SDK or Integration? Let us know by opening an issue.
+- **Chunk-Free Segmentation**  
+  No arbitrary chunking. Nodes follow the natural structure of the document.
 
-To run locally, refer to guide [here](https://github.com/mendableai/firecrawl/blob/main/CONTRIBUTING.md).
+- **Scales to Massive Documents**  
+  Designed to handle hundreds or even thousands of pages with ease.
 
-### API Key
+### 📦 PageIndex Format
 
-To use the API, you need to sign up on [Firecrawl](https://firecrawl.dev) and get an API key.
-
-### Features
-
-- [**Scrape**](#scraping): scrapes a URL and get its content in LLM-ready format (markdown, structured data via [LLM Extract](#llm-extraction-beta), screenshot, html)
-- [**Crawl**](#crawling): scrapes all the URLs of a web page and return content in LLM-ready format
-- [**Map**](#map-alpha): input a website and get all the website urls - extremely fast
-- [**Extract**](#extract): get structured data from single page, multiple pages or entire websites with AI.
-
-### Powerful Capabilities
-- **LLM-ready formats**: markdown, structured data, screenshot, HTML, links, metadata
-- **The hard stuff**: proxies, anti-bot mechanisms, dynamic content (js-rendered), output parsing, orchestration
-- **Customizability**: exclude tags, crawl behind auth walls with custom headers, max crawl depth, etc...
-- **Media parsing**: pdfs, docx, images
-- **Reliability first**: designed to get the data you need - no matter how hard it is
-- **Actions**: click, scroll, input, wait and more before extracting data
-- **Batching (New)**: scrape thousands of URLs at the same time with a new async endpoint.
-
-You can find all of Firecrawl's capabilities and how to use them in our [documentation](https://docs.firecrawl.dev)
-
-### Crawling
-
-Used to crawl a URL and all accessible subpages. This submits a crawl job and returns a job ID to check the status of the crawl.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/crawl \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer fc-YOUR_API_KEY' \
-    -d '{
-      "url": "https://docs.firecrawl.dev",
-      "limit": 10,
-      "scrapeOptions": {
-        "formats": ["markdown", "html"]
-      }
-    }'
-```
-
-Returns a crawl job id and the url to check the status of the crawl.
+Here is an example output. See more [example documents](https://github.com/VectifyAI/PageIndex/tree/main/docs) and [generated trees](https://github.com/VectifyAI/PageIndex/tree/main/results).
 
 ```json
+...
 {
-  "success": true,
-  "id": "123-456-789",
-  "url": "https://api.firecrawl.dev/v1/crawl/123-456-789"
-}
-```
-
-### Check Crawl Job
-
-Used to check the status of a crawl job and get its result.
-
-```bash
-curl -X GET https://api.firecrawl.dev/v1/crawl/123-456-789 \
-  -H 'Content-Type: application/json' \
-  -H 'Authorization: Bearer YOUR_API_KEY'
-```
-
-```json
-{
-  "status": "completed",
-  "total": 36,
-  "creditsUsed": 36,
-  "expiresAt": "2024-00-00T00:00:00.000Z",
-  "data": [
+  "title": "Financial Stability",
+  "node_id": "0006",
+  "start_index": 21,
+  "end_index": 22,
+  "summary": "The Federal Reserve ...",
+  "nodes": [
     {
-      "markdown": "[Firecrawl Docs home page![light logo](https://mintlify.s3-us-west-1.amazonaws.com/firecrawl/logo/light.svg)!...",
-      "html": "<!DOCTYPE html><html lang=\"en\" class=\"js-focus-visible lg:[--scroll-mt:9.5rem]\" data-js-focus-visible=\"\">...",
-      "metadata": {
-        "title": "Build a 'Chat with website' using Groq Llama 3 | Firecrawl",
-        "language": "en",
-        "sourceURL": "https://docs.firecrawl.dev/learn/rag-llama3",
-        "description": "Learn how to use Firecrawl, Groq Llama 3, and Langchain to build a 'Chat with your website' bot.",
-        "ogLocaleAlternate": [],
-        "statusCode": 200
-      }
-    }
-  ]
-}
-```
-
-### Scraping
-
-Used to scrape a URL and get its content in the specified formats.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/scrape \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "url": "https://docs.firecrawl.dev",
-      "formats" : ["markdown", "html"]
-    }'
-```
-
-Response:
-
-```json
-{
-  "success": true,
-  "data": {
-    "markdown": "Launch Week I is here! [See our Day 2 Release 🚀](https://www.firecrawl.dev/blog/launch-week-i-day-2-doubled-rate-limits)[💥 Get 2 months free...",
-    "html": "<!DOCTYPE html><html lang=\"en\" class=\"light\" style=\"color-scheme: light;\"><body class=\"__variable_36bd41 __variable_d7dc5d font-inter ...",
-    "metadata": {
-      "title": "Home - Firecrawl",
-      "description": "Firecrawl crawls and converts any website into clean markdown.",
-      "language": "en",
-      "keywords": "Firecrawl,Markdown,Data,Mendable,Langchain",
-      "robots": "follow, index",
-      "ogTitle": "Firecrawl",
-      "ogDescription": "Turn any website into LLM-ready data.",
-      "ogUrl": "https://www.firecrawl.dev/",
-      "ogImage": "https://www.firecrawl.dev/og.png?123",
-      "ogLocaleAlternate": [],
-      "ogSiteName": "Firecrawl",
-      "sourceURL": "https://firecrawl.dev",
-      "statusCode": 200
-    }
-  }
-}
-```
-
-### Map (Alpha)
-
-Used to map a URL and get urls of the website. This returns most links present on the website.
-
-```bash cURL
-curl -X POST https://api.firecrawl.dev/v1/map \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "url": "https://firecrawl.dev"
-    }'
-```
-
-Response:
-
-```json
-{
-  "status": "success",
-  "links": [
-    "https://firecrawl.dev",
-    "https://www.firecrawl.dev/pricing",
-    "https://www.firecrawl.dev/blog",
-    "https://www.firecrawl.dev/playground",
-    "https://www.firecrawl.dev/smart-crawl",
-  ]
-}
-```
-
-#### Map with search
-
-Map with `search` param allows you to search for specific urls inside a website.
-
-```bash cURL
-curl -X POST https://api.firecrawl.dev/v1/map \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "url": "https://firecrawl.dev",
-      "search": "docs"
-    }'
-```
-
-Response will be an ordered list from the most relevant to the least relevant.
-
-```json
-{
-  "status": "success",
-  "links": [
-    "https://docs.firecrawl.dev",
-    "https://docs.firecrawl.dev/sdks/python",
-    "https://docs.firecrawl.dev/learn/rag-llama3",
-  ]
-}
-```
-
-### Extract
-
-Get structured data from entire websites with a prompt and/or a schema.
-
-You can extract structured data from one or multiple URLs, including wildcards:
-
-Single Page:
-Example: https://firecrawl.dev/some-page
-
-Multiple Pages / Full Domain
-Example: https://firecrawl.dev/*
-
-When you use /*, Firecrawl will automatically crawl and parse all URLs it can discover in that domain, then extract the requested data.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/extract \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "urls": [
-        "https://firecrawl.dev/*", 
-        "https://docs.firecrawl.dev/", 
-        "https://www.ycombinator.com/companies"
-      ],
-      "prompt": "Extract the company mission, whether it is open source, and whether it is in Y Combinator from the page.",
-      "schema": {
-        "type": "object",
-        "properties": {
-          "company_mission": {
-            "type": "string"
-          },
-          "is_open_source": {
-            "type": "boolean"
-          },
-          "is_in_yc": {
-            "type": "boolean"
-          }
-        },
-        "required": [
-          "company_mission",
-          "is_open_source",
-          "is_in_yc"
-        ]
-      }
-    }'
-```
-
-```json
-{
-  "success": true,
-  "id": "44aa536d-f1cb-4706-ab87-ed0386685740",
-  "urlTrace": []
-}
-```
-
-If you are using the sdks, it will auto pull the response for you:
-
-```json
-{
-  "success": true,
-  "data": {
-    "company_mission": "Firecrawl is the easiest way to extract data from the web. Developers use us to reliably convert URLs into LLM-ready markdown or structured data with a single API call.",
-    "supports_sso": false,
-    "is_open_source": true,
-    "is_in_yc": true
-  }
-}
-```
-
-### LLM Extraction (Beta)
-
-Used to extract structured data from scraped pages.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/scrape \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "url": "https://www.mendable.ai/",
-      "formats": ["json"],
-      "jsonOptions": {
-        "schema": {
-          "type": "object",
-          "properties": {
-            "company_mission": {
-                      "type": "string"
-            },
-            "supports_sso": {
-                      "type": "boolean"
-            },
-            "is_open_source": {
-                      "type": "boolean"
-            },
-            "is_in_yc": {
-                      "type": "boolean"
-            }
-          },
-          "required": [
-            "company_mission",
-            "supports_sso",
-            "is_open_source",
-            "is_in_yc"
-          ]
-        }
-      }
-    }'
-```
-
-```json
-{
-  "success": true,
-  "data": {
-    "content": "Raw Content",
-    "metadata": {
-      "title": "Mendable",
-      "description": "Mendable allows you to easily build AI chat applications. Ingest, customize, then deploy with one line of code anywhere you want. Brought to you by SideGuide",
-      "robots": "follow, index",
-      "ogTitle": "Mendable",
-      "ogDescription": "Mendable allows you to easily build AI chat applications. Ingest, customize, then deploy with one line of code anywhere you want. Brought to you by SideGuide",
-      "ogUrl": "https://mendable.ai/",
-      "ogImage": "https://mendable.ai/mendable_new_og1.png",
-      "ogLocaleAlternate": [],
-      "ogSiteName": "Mendable",
-      "sourceURL": "https://mendable.ai/"
+      "title": "Monitoring Financial Vulnerabilities",
+      "node_id": "0007",
+      "start_index": 22,
+      "end_index": 28,
+      "summary": "The Federal Reserve's monitoring ..."
     },
-    "json": {
-      "company_mission": "Train a secure AI on your technical resources that answers customer and employee questions so your team doesn't have to",
-      "supports_sso": true,
-      "is_open_source": false,
-      "is_in_yc": true
-    }
-  }
-}
-```
-
-### Extracting without a schema (New)
-
-You can now extract without a schema by just passing a `prompt` to the endpoint. The llm chooses the structure of the data.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/scrape \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "url": "https://docs.firecrawl.dev/",
-      "formats": ["json"],
-      "jsonOptions": {
-        "prompt": "Extract the company mission from the page."
-      }
-    }'
-```
-
-### Interacting with the page with Actions (Cloud-only)
-
-Firecrawl allows you to perform various actions on a web page before scraping its content. This is particularly useful for interacting with dynamic content, navigating through pages, or accessing content that requires user interaction.
-
-Here is an example of how to use actions to navigate to google.com, search for Firecrawl, click on the first result, and take a screenshot.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/scrape \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-        "url": "google.com",
-        "formats": ["markdown"],
-        "actions": [
-            {"type": "wait", "milliseconds": 2000},
-            {"type": "click", "selector": "textarea[title=\"Search\"]"},
-            {"type": "wait", "milliseconds": 2000},
-            {"type": "write", "text": "firecrawl"},
-            {"type": "wait", "milliseconds": 2000},
-            {"type": "press", "key": "ENTER"},
-            {"type": "wait", "milliseconds": 3000},
-            {"type": "click", "selector": "h3"},
-            {"type": "wait", "milliseconds": 3000},
-            {"type": "screenshot"}
-        ]
-    }'
-```
-
-### Batch Scraping Multiple URLs (New)
-
-You can now batch scrape multiple URLs at the same time. It is very similar to how the /crawl endpoint works. It submits a batch scrape job and returns a job ID to check the status of the batch scrape.
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/batch/scrape \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "urls": ["https://docs.firecrawl.dev", "https://docs.firecrawl.dev/sdks/overview"],
-      "formats" : ["markdown", "html"]
-    }'
-```
-
-### Search
-
-The search endpoint combines web search with Firecrawl’s scraping capabilities to return full page content for any query.
-
-Include `scrapeOptions` with `formats: ["markdown"]` to get complete markdown content for each search result otherwise it defaults to getting SERP results (url, title, description).
-
-```bash
-curl -X POST https://api.firecrawl.dev/v1/search \
-    -H 'Content-Type: application/json' \
-    -H 'Authorization: Bearer YOUR_API_KEY' \
-    -d '{
-      "query": "What is Mendable?"
-    }'
-```
-
-```json
-{
-  "success": true,
-  "data": [
     {
-      "url": "https://mendable.ai",
-      "title": "Mendable | AI for CX and Sales",
-      "description": "AI for CX and Sales"
+      "title": "Domestic and International Cooperation and Coordination",
+      "node_id": "0008",
+      "start_index": 28,
+      "end_index": 31,
+      "summary": "In 2023, the Federal Reserve collaborated ..."
     }
   ]
 }
+...
 ```
 
-## Using Python SDK
+---
 
-### Installing Python SDK
+# 🚀 Package Usage
+
+Follow these steps to generate a PageIndex tree from a PDF document.
+
+### 1. Install dependencies
 
 ```bash
-pip install firecrawl-py
+pip3 install -r requirements.txt
 ```
 
-### Crawl a website
+### 2. Set your OpenAI API key
 
-```python
-from firecrawl.firecrawl import FirecrawlApp
-
-app = FirecrawlApp(api_key="fc-YOUR_API_KEY")
-
-# Scrape a website:
-scrape_status = app.scrape_url(
-  'https://firecrawl.dev', 
-  params={'formats': ['markdown', 'html']}
-)
-print(scrape_status)
-
-# Crawl a website:
-crawl_status = app.crawl_url(
-  'https://firecrawl.dev', 
-  params={
-    'limit': 100, 
-    'scrapeOptions': {'formats': ['markdown', 'html']}
-  },
-  poll_interval=30
-)
-print(crawl_status)
-```
-
-### Extracting structured data from a URL
-
-With LLM extraction, you can easily extract structured data from any URL. We support pydantic schemas to make it easier for you too. Here is how you to use it:
-
-```python
-
-from firecrawl.firecrawl import FirecrawlApp
-
-app = FirecrawlApp(api_key="fc-YOUR_API_KEY")
-
-class ArticleSchema(BaseModel):
-    title: str
-    points: int
-    by: str
-    commentsURL: str
-
-class TopArticlesSchema(BaseModel):
-    top: List[ArticleSchema] = Field(..., max_items=5, description="Top 5 stories")
-
-data = app.scrape_url('https://news.ycombinator.com', {
-    'formats': ['json'],
-    'jsonOptions': {
-        'schema': TopArticlesSchema.model_json_schema()
-    }
-})
-print(data["json"])
-```
-
-## Using the Node SDK
-
-### Installation
-
-To install the Firecrawl Node SDK, you can use npm:
+Create a `.env` file in the root directory and add your API key:
 
 ```bash
-npm install @mendable/firecrawl-js
+CHATGPT_API_KEY=your_openai_key_here
 ```
 
-### Usage
+### 3. Run PageIndex on your PDF
 
-1. Get an API key from [firecrawl.dev](https://firecrawl.dev)
-2. Set the API key as an environment variable named `FIRECRAWL_API_KEY` or pass it as a parameter to the `FirecrawlApp` class.
+```bash
+python3 run_pageindex.py --pdf_path /path/to/your/document.pdf
+```
+You can customize the processing with additional optional arguments:
 
-```js
-import FirecrawlApp, { CrawlParams, CrawlStatusResponse } from '@mendable/firecrawl-js';
-
-const app = new FirecrawlApp({apiKey: "fc-YOUR_API_KEY"});
-
-// Scrape a website
-const scrapeResponse = await app.scrapeUrl('https://firecrawl.dev', {
-  formats: ['markdown', 'html'],
-});
-
-if (scrapeResponse) {
-  console.log(scrapeResponse)
-}
-
-// Crawl a website
-const crawlResponse = await app.crawlUrl('https://firecrawl.dev', {
-  limit: 100,
-  scrapeOptions: {
-    formats: ['markdown', 'html'],
-  }
-} satisfies CrawlParams, true, 30) satisfies CrawlStatusResponse;
-
-if (crawlResponse) {
-  console.log(crawlResponse)
-}
+```bash
+--model                 OpenAI model to use (default: gpt-4o-2024-11-20)
+--toc-check-pages       Pages to check for table of contents (default: 20)
+--max-pages-per-node    Max pages per node (default: 10)
+--max-tokens-per-node   Max tokens per node (default: 20000)
+--if-add-node-id        Add node ID (yes/no, default: yes)
+--if-add-node-summary   Add node summary (yes/no, default: no)
+--if-add-doc-description Add doc description (yes/no, default: yes)
 ```
 
+---
 
-### Extracting structured data from a URL
+# ☁️ Cloud API (Beta)
 
-With LLM extraction, you can easily extract structured data from any URL. We support zod schema to make it easier for you too. Here is how to use it:
+Don’t want to host it yourself? Try our [hosted API](https://pageindex.vectify.ai/) for PageIndex. The hosted version uses our custom OCR model to recognize PDFs more accurately, providing a better tree structure for complex documents.
+Leave your email in [this form](https://ii2abc2jejf.typeform.com/to/meB40zV0) to receive 1,000 pages for free.
 
-```js
-import FirecrawlApp from "@mendable/firecrawl-js";
-import { z } from "zod";
+---
 
-const app = new FirecrawlApp({
-  apiKey: "fc-YOUR_API_KEY"
-});
+# 📈 Case Study: Mafin 2.5
 
-// Define schema to extract contents into
-const schema = z.object({
-  top: z
-    .array(
-      z.object({
-        title: z.string(),
-        points: z.number(),
-        by: z.string(),
-        commentsURL: z.string(),
-      })
-    )
-    .length(5)
-    .describe("Top 5 stories on Hacker News"),
-});
+[Mafin 2.5](https://vectify.ai/blog/Mafin2.5) is a state-of-the-art reasoning-based RAG model designed specifically for financial document analysis. Built on top of **PageIndex**, it achieved an impressive **98.7% accuracy** on the [FinanceBench](https://github.com/VectifyAI/Mafin2.5-FinanceBench) benchmark—significantly outperforming traditional vector-based RAG systems.
 
-const scrapeResult = await app.scrapeUrl("https://news.ycombinator.com", {
-  jsonOptions: { extractionSchema: schema },
-});
+PageIndex’s hierarchical indexing enabled precise navigation and extraction of relevant content from complex financial reports, such as SEC filings and earnings disclosures.
 
-console.log(scrapeResult.data["json"]);
+👉 See full [benchmark results](https://github.com/VectifyAI/Mafin2.5-FinanceBench) for detailed comparisons and performance metrics.
+
+---
+
+# 🧠 Reasoning-Based RAG with PageIndex
+
+Use PageIndex to build **reasoning-based retrieval systems** without relying on semantic similarity. Great for domain-specific tasks where nuance matters.
+
+### 🔖 Preprocessing Workflow Example
+1. Process documents using PageIndex to generate tree structures.
+2. Store the tree structures and their corresponding document IDs in a database table.
+3. Store the contents of each node in a separate table, indexed by node ID and tree ID.
+
+### 🔖 Reasoning-Based RAG Framework Example
+1. Query Preprocessing:
+    - Analyze the query to identify the required knowledge
+2. Document Selection: 
+    - Search for relevant documents and their IDs
+    - Fetch the corresponding tree structures from the database
+3. Node Selection:
+    - Search through tree structures to identify relevant nodes
+4. LLM Generation:
+    - Fetch the corresponding contents of the selected nodes from the database
+    - Format and extract the relevant information
+    - Send the assembled context along with the original query to the LLM
+    - Generate contextually informed responses
+
+
+### 🔖 Example Prompt for Node Selection
+
+```python
+prompt = f"""
+You are given a question and a tree structure of a document.
+You need to find all nodes that are likely to contain the answer.
+
+Question: {question}
+
+Document tree structure: {structure}
+
+Reply in the following JSON format:
+{{
+    "thinking": <reasoning about where to look>,
+    "node_list": [node_id1, node_id2, ...]
+}}
+"""
 ```
+For more examples, see the [API dashboard](https://pageindex.vectify.ai/).
 
-## Open Source vs Cloud Offering
+---
 
-Firecrawl is open source available under the AGPL-3.0 license. 
+# 🛤 Roadmap
 
-To deliver the best possible product, we offer a hosted version of Firecrawl alongside our open-source offering. The cloud solution allows us to continuously innovate and maintain a high-quality, sustainable service for all users.
+- [ ]  Detailed examples of document selection, node selection, and RAG pipelines (due 2025/04/14)
+- [ ]  Integration of reasoning-based retrieval and semantic-based retrieval (due 2025/04/21)
+- [ ]  Efficient tree search methods introduction
+- [ ]  Technical report on the design of PageIndex
 
-Firecrawl Cloud is available at [firecrawl.dev](https://firecrawl.dev) and offers a range of features that are not available in the open source version:
+---
 
-![Open Source vs Cloud Offering](https://raw.githubusercontent.com/mendableai/firecrawl/main/img/open-source-cloud.png)
+# 🚧 Notice
+This project is in its early beta development, and all progress will remain open and transparent. We welcome you to raise issues, reach out with questions, or contribute directly to the project.  
 
+Due to the diverse structures of PDF documents, you may encounter instability during usage. For a more accurate and stable version with a leading OCR integration, please try our [hosted API for PageIndex](https://pageindex.vectify.ai/). Leave your email in [this form](https://ii2abc2jejf.typeform.com/to/meB40zV0) to receive 1,000 pages for free.
 
-## Contributing
+Together, let's push forward the revolution of reasoning-based RAG systems.
 
-We love contributions! Please read our [contributing guide](CONTRIBUTING.md) before submitting a pull request. If you'd like to self-host, refer to the [self-hosting guide](SELF_HOST.md).
+---
 
-_It is the sole responsibility of the end users to respect websites' policies when scraping, searching and crawling with Firecrawl. Users are advised to adhere to the applicable privacy policies and terms of use of the websites prior to initiating any scraping activities. By default, Firecrawl respects the directives specified in the websites' robots.txt files when crawling. By utilizing Firecrawl, you expressly agree to comply with these conditions._
+# 📬 Contact Us
 
-## Contributors
+Need customized support for your documents or reasoning-based RAG system?
 
-<a href="https://github.com/mendableai/firecrawl/graphs/contributors">
-  <img alt="contributors" src="https://contrib.rocks/image?repo=mendableai/firecrawl"/>
-</a>
+:loudspeaker: [Join our Discord](https://discord.com/invite/nnyyEdT2RG)
 
-## License Disclaimer
-
-This project is primarily licensed under the GNU Affero General Public License v3.0 (AGPL-3.0), as specified in the LICENSE file in the root directory of this repository. However, certain components of this project are licensed under the MIT License. Refer to the LICENSE files in these specific directories for details.
-
-Please note:
-
-- The AGPL-3.0 license applies to all parts of the project unless otherwise specified.
-- The SDKs and some UI components are licensed under the MIT License. Refer to the LICENSE files in these specific directories for details.
-- When using or contributing to this project, ensure you comply with the appropriate license terms for the specific component you are working with.
-
-For more details on the licensing of specific components, please refer to the LICENSE files in the respective directories or contact the project maintainers.
-
-
-<p align="right" style="font-size: 14px; color: #555; margin-top: 20px;">
-    <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">
-        ↑ Back to Top ↑
-    </a>
-</p>
+:envelope: [Leave us a message](https://ii2abc2jejf.typeform.com/to/meB40zV0)
